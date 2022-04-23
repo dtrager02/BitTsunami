@@ -1,4 +1,3 @@
-import pickle
 import os
 import json
 import hashlib
@@ -82,7 +81,7 @@ class TorrentGenerator:
         info = dict()
         info["name"] = os.path.basename(os.path.normpath(self.path))
         info["announce"] = tracker
-        info["piece_size"] = 2*1024**2
+        info["piece_size"] = self.piece_size
         info["piece_encoding"] = "Base64"
         info["files"],info["pieces"] = [],[]
         #this will be replaced by the tail of the nth file
